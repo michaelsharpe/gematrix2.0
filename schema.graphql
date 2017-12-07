@@ -1,0 +1,121 @@
+# ████████╗██╗   ██╗██████╗ ███████╗███████╗
+# ╚══██╔══╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔════╝
+#    ██║    ╚████╔╝ ██████╔╝█████╗  ███████╗
+#    ██║     ╚██╔╝  ██╔═══╝ ██╔══╝  ╚════██║
+#    ██║      ██║   ██║     ███████╗███████║
+#    ╚═╝      ╚═╝   ╚═╝     ╚══════╝╚══════╝
+#                                           
+
+type User {
+    id: ID!
+    email: String!
+    ...TimeStamp
+    password: String!
+    username: String!
+    collections: [Collection!]!
+}
+
+type Collection {
+    id: ID!
+    title: String!
+    ...TimeStamp
+    description: String!
+    user: User!
+    numerals: [Numeral!]!
+}
+
+type Numeral {
+    id: ID!
+    ...TimeStamp
+    value: Int!
+    equations: [String!]
+    collection: Collection! 
+    entries: [Entry]
+    comments: [Comment]
+}
+
+type Entry {
+    id: ID!
+    ...TimeStamp
+    word: String!
+    numeral: Numeral!
+    language: Language!
+    pronunciation: String!
+    definition: String!
+    comments: [Comment]
+    see: [Numeral]
+}
+
+type Comment {
+    id: ID!
+    ...TimeStamp
+    entry: Entry 
+    numeral: Numeral
+    content: String!
+    see: [Numeral]
+}
+
+type Query {
+    User(userId: ID!)
+    Collection(id: ID): Collection
+    Numeral(id: ID, collectionId: ID, value: Int): Numeral
+    Entry(id: ID!, word: String): Entry
+    Entries(numeralId: ID, commentId: ID, limit: Int): [Entry]
+    # Comment
+}
+
+# ███████╗███╗   ██╗██╗   ██╗███╗   ███╗███████╗
+# ██╔════╝████╗  ██║██║   ██║████╗ ████║██╔════╝
+# █████╗  ██╔██╗ ██║██║   ██║██╔████╔██║███████╗
+# ██╔══╝  ██║╚██╗██║██║   ██║██║╚██╔╝██║╚════██║
+# ███████╗██║ ╚████║╚██████╔╝██║ ╚═╝ ██║███████║
+# ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+#                                               
+
+enum Language {
+    HEBREW
+    GREEK
+    LATIN
+    ENGLISH
+    ARABIC
+}
+
+enum CommentType {
+    ENTRY
+    NUMERAL
+}
+
+# ███████╗██████╗  █████╗  ██████╗ ███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+# ██╔════╝██╔══██╗██╔══██╗██╔════╝ ████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+# █████╗  ██████╔╝███████║██║  ███╗██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+# ██╔══╝  ██╔══██╗██╔══██║██║   ██║██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+# ██║     ██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+# ╚═╝     ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+#                                                                                
+
+fragment TimeStamp {
+    createdAt: DateTime!
+    updatedAt: DateTime!
+}
+
+input CreateUserInput {
+    email: String!
+    password: String!
+    username: String!
+}
+
+input CreateCollectionInput {
+    title: String!
+    description: String!
+}
+
+input createNumeralInput {
+    value: Int!
+    collectionId: ID!
+}
+
+input CreateNumeralInput {
+    # I may not need this, as every new entry HAS to have a numeral associated with it that it adds up to.
+    # Auto create new numeral if one doesnt exist for that collection
+}
+

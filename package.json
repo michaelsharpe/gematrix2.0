@@ -1,0 +1,8 @@
+{
+  "name": "gematrix2.0",
+  "version": "0.0.1",
+  "description": "Application for the learning, organizing and sharing qabalistic insights.",
+  "main": "index.js",
+  "author": "Michael Sharpe",
+  "license": "MIT"
+}
