@@ -10,6 +10,16 @@ A user friending/following could be utilized, as well as shared collections/note
 
 Another primary feature will be the generation of audio/visual experiences based on sequences of letters.  Slideshows can be set up that are sequences of pure sound/color based on letter/color/note atributions, as well as meditative tarot sequences.
 
+# Installing
+
+MongoDB will need to be installed locally.  Easiest to do through homebrew.  
+
+Yarn is suggested for installing dependencies.  Once cloned, `cd` into the root of the project and run `yarn`.
+
+After dependencies are installed, you can see the database with `npm run seed:pfc`.
+
+Finally, with your MongoDB server running, run `npm start`.  You can access the interactive graphql at localhost:2368/graphiql.
+
 # Developmet Style
 
 This app will utilize component driven development, focusing on the creation of core components that can be shared across the full react ecosystem of web, mobile and desktop and act as atomic elements of the design of the various areas.
