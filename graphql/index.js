@@ -1,2 +1,11 @@
-// possibly use node-glob here to gather all the files from 
-// the graphql folder and put them together. No barelling required.
+import { makeExecutableSchema } from 'graphql-tools'
+
+// Importing types and resolvers composed from the main schema directory
+import { typeDefs, resolvers } from './schema'
+
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers
+})
+
+export default schema

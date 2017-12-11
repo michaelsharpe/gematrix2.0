@@ -6,14 +6,7 @@ import { makeExecutableSchema } from 'graphql-tools'
 import config from './graphql/config'
 import { mongooseConnector } from './graphql/connectors/mongoose/mongo.connector'
 
-import { schema } from 'schema'
-
-const typeDefs = `
-  type Query {
-    hello: String!
-  }
-`
-
+import schema from './graphql'
 
 const app = express()
 

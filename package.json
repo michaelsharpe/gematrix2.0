@@ -5,7 +5,7 @@
   "main": "server.mjs",
   "author": "Michael Sharpe",
   "scripts": {
-    "start": "nodemon --exec babel-node -- ./server.js",
+    "start": "nodemon -e graphql,js --exec babel-node -- ./server.js",
     "seed:pfc": "babel-node ./seeds/pfcSeeds.js"
   },
   "license": "MIT",
@@ -20,6 +20,7 @@
     "express": "^4.16.2",
     "graphql": "^0.11.7",
     "graphql-tools": "^2.12.0",
+    "merge-graphql-schemas": "^1.4.0",
     "mongoose": "^4.13.6",
     "nodemon": "^1.12.5"
   }

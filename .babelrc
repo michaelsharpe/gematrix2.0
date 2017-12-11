@@ -6,7 +6,7 @@
     "plugins": [
       "import-glob",
       ["module-resolver", {
-        "root": ["./graphql"]
+        "root": ["./graphql", "./lib"]
       }]
     ]
 }

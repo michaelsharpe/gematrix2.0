@@ -12,6 +12,8 @@ const CommentSchema = new mongoose.Schema({
   updatedAt: { type: Date, required: true, default: Date.now() }
 })
 
+// To JSON function replaces the built in one for greater control over data recall
+// This would be good if we want to add our own formatting functions, etc.
 const toJSON = () => ({
   id: this.id,
   type: this.type,

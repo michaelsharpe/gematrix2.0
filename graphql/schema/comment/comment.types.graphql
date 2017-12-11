@@ -1,0 +1,14 @@
+type Comment {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  entry: Entry 
+  numeral: Numeral
+  content: String!
+  see: [Numeral]
+}
+
+type Query {
+  numerals: [Numeral]
+  numeral(id: ID, collectionId: ID, value: Int): Numeral
+}

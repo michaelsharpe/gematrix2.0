@@ -1,0 +1,16 @@
+type Entry {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  word: String!
+  numeral: Numeral!
+  language: String
+  pronunciation: String!
+  definition: String!
+  comments: [Comment]
+  see: [Numeral]
+}
+
+type Query {
+  searchEntries(word: String): [Entry]
+}

@@ -1,0 +1,9 @@
+type Numeral {
+  id: ID!
+  createdAt: String
+  updatedAt: String
+  value: Int!
+  equations: [String!]
+  entries: [Entry]
+  comments: [Comment]
+}
