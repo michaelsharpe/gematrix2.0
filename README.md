@@ -123,11 +123,11 @@ type User {
 }
 ```
 
-#### Collection
+#### Notebook
 
-Collections allow for the aggregation of Numerals, which form the core form of organization of all data.  Everything can be broken down into numerals, added, and associated.
+Notebooks allow for the aggregation of Numerals, which form the core form of organization of all data.  Everything can be broken down into numerals, added, and associated.
 
-A collection can be all numbers (a sepher sephiroth), as well as a table of various correspondences, such as the Paths of Wisdom (777), and the different tables of 777.  
+A otebook can be all numbers (a sepher sephiroth), as well as a table of various correspondences, such as the Paths of Wisdom (777), and the different tables of 777.  
 
 ```
 type Collection {

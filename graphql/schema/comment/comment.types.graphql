@@ -7,8 +7,3 @@ type Comment {
   content: String!
   see: [Numeral]
 }
-
-type Query {
-  numerals: [Numeral]
-  numeral(id: ID, collectionId: ID, value: Int): Numeral
-}

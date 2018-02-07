@@ -1,14 +1,12 @@
+import {
+  getNumeral,
+  getNumerals
+} from './numeral.model'
+
 export default {
   Query: {
-    numerals: (root, args, { mongoose }) => mongoose.numeral.find({}),
-    numeral: (root, { id, value }, { mongoose }) => {
-      if (value) {
-        return mongoose.numeral.findOne({ value: value })
-      }
-      if (id) {
-        return mongoose.numeral.findOne({_id: id})
-      }
-    }
+    numerals: getNumerals,
+    numeral: getNumeral
   },
   Numeral: {
     entries: (root, args, { mongoose }) => mongoose.entry.find({ numeralId: root._id }).populate('comments'),

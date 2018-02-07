@@ -7,3 +7,8 @@ type Numeral {
   entries: [Entry]
   comments: [Comment]
 }
+
+type Query {
+  numerals: [Numeral]
+  numeral(id: ID, value: Int): Numeral
+}
